@@ -18,16 +18,27 @@ nav ul {
   gap: 20px;
 }
 header {
-  background-color: #f56d1f;
+  background-color: #f30707;
 }
 
 nav a {
   display: block;
   padding: 8px 12px;
-  color: #000000;
+  color: #f39200;
 }
 
 nav a:hover,
 nav a:focus-visible {
-  background-color: #dd0808;
+  background-color: #a105fc;
+}
+
+@media (max-width: 480px) {
+  nav ul {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  main {
+    padding: 16px;
+  }
 }
