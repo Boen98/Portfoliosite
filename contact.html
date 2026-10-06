@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Portfolio van Boen</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="contact.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <nav aria-label="Hoofdnavigatie">
+        <ul>
+          <li><a href="index.html">Whoami</a></li>
+          <li><a href="projecten.html">Projecten</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h1 id="contact-titel">Contact</h1>
+      <p>Alle velden zijn verplicht. Dit is een oefenformulier: je bericht wordt niet verzonden.</p>
+      <form id="contact-formulier">
+        <fieldset id="contact-velden" disabled>
+          <legend>Jouw gegevens en bericht</legend>
+          <div class="form-veld">
+            <label for="naam">Naam (verplicht)</label>
+            <input id="naam" name="naam" type="text" autocomplete="name" required
+              aria-describedby="naam-fout">
+            <p id="naam-fout" class="veld-fout" aria-live="polite"></p>
+          </div>
+          <div class="form-veld">
+            <label for="email">E-mailadres (verplicht)</label>
+            <input id="email" name="email" type="email" autocomplete="email" required
+              aria-describedby="email-fout">
+            <p id="email-fout" class="veld-fout" aria-live="polite"></p>
+          </div>
+          <div class="form-veld">
+            <label for="bericht">Bericht (verplicht)</label>
+            <p id="bericht-hulp">Schrijf minimaal 10 tekens, zonder spaties aan het begin of einde mee te tellen.</p>
+            <textarea id="bericht" name="bericht" rows="5" minlength="10" required
+              aria-describedby="bericht-hulp bericht-fout"></textarea>
+            <p id="bericht-fout" class="veld-fout" aria-live="polite"></p>
+          </div>
+          <button type="submit">Versturen (oefening)</button>
+        </fieldset>
+        <p id="contact-status" role="status" aria-live="polite"></p>
+      </form>
+      <p id="contact-zonder-js">Schakel JavaScript in om dit oefenformulier te gebruiken.</p>
+    </main>
+
+    <footer>
+      <p>&copy; portfolio van Boen</p>
+    </footer>
+  </body>
+</html>

@@ -3,21 +3,23 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Over mij - Portfolio van Boen</title>
+    <title>Whoami - Portfolio van Boen</title>
     <link rel="stylesheet" href="style.css">
+    <script src="weer.js" defer></script>
     </head>
     <body>
       <header>
-        <nav>
+        <nav aria-label="Hoofdnavigatie">
           <ul>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html" aria-current="page">Whoami</a></li>
             <li><a href="projecten.html">Projecten</a></li>
             <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
       </header>
       <main>
-        <h1>Over mij</h1>
+        <h1>Whoami</h1>
         <p>Hallo! Mijn naam is Boen en ik ben tweedejaarsstudent HBO-ICT, met de richting Software Engineering.</p>
         <section>
           <h2>Mijn interesses</h2>
@@ -27,10 +29,20 @@
         <h2>Wat leer ik?</h2>
         <p>Ik leer momenteel over verschillende dingen, waaronder JavaScript, HTML en CSS. Ik leer ook werken met databases.</p>
         </section>
+        <section id="weer" aria-labelledby="weer-titel">
+          <h2 id="weer-titel">Het weer in Den Haag</h2>
+          <p>Bekijk de actuele temperatuur en windsnelheid in Den Haag.</p>
+          <p id="weer-status" role="status" aria-live="polite">Schakel JavaScript in om het weer te bekijken.</p>
+          <div id="weer-gegevens" aria-busy="false"></div>
+          <button id="weer-vernieuwen" type="button" disabled>Weer vernieuwen</button>
+          <p class="weer-bron">Weergegevens: <a href="https://open-meteo.com/">Open-Meteo</a>,
+            <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+        </section>
+
       </main>
       <footer>
-       <p>&copy; portfolio van Boen</p>
-      </footer>
+       <p>&copy; Portfolio-Boen</p>
+    </footer>
     </body>
    </html>
  
