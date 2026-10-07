@@ -75,8 +75,8 @@ function filterProjecten(projectenData, categorie) {
   });
 }
 
-// Sorteer een kopie, zodat de oorspronkelijke volgorde niet verandert.
 function sorteerProjecten(projectenData, volgorde) {
+  // spread operator maakt een kopie van de array, zodat de oorspronkelijke volgorde niet verandert.
   const gesorteerd = [...projectenData];
   gesorteerd.sort((a, b) => {
     return a.titel.localeCompare(b.titel, "nl");

@@ -37,8 +37,14 @@ function controleerVeld(veld) {
   const foutmelding = bepaalFoutmelding(veld);
   const foutElement = document.querySelector("#" + veld.id + "-fout");
   foutElement.textContent = foutmelding;
-  veld.setAttribute("aria-invalid", foutmelding !== "" ? "true" : "false");
-  return foutmelding === "";
+
+  if (foutmelding === "") {
+    veld.setAttribute("aria-invalid", "false");
+    return true;
+  } else {
+    veld.setAttribute("aria-invalid", "true");
+    return false;
+  }
 }
 
 function verwerkContactformulier(event) {
