@@ -21,7 +21,7 @@ function bepaalFoutmelding(veld) {
       return "Vul je e-mailadres in.";
     }
     if (veld.validity.typeMismatch) {
-      return "Vul een geldig e-mailadres in, bijvoorbeeld naam@voorbeeld.nl.";
+      return "Vul een geldig e-mailadres in, bijvoorbeeld naam@gmail.com";
     }
   }
 
@@ -66,7 +66,7 @@ function verwerkContactformulier(event) {
     return;
   }
 
-  contactStatus.textContent = "Bedankt! Je gegevens zijn geldig. Dit is een oefenformulier; je bericht is niet verzonden.";
+  contactStatus.textContent = "Bedankt! Je gegevens zijn geldig. Dit is een oefenformulier; je bericht is niet echt verzonden.";
 }
 
 contactFormulier.addEventListener("submit", verwerkContactformulier);
