@@ -13,13 +13,19 @@
         "packagesPath": "C:\\Users\\FakebearBoen\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\FakebearBoen\\Portfoliosite\\backend\\PortfolioApi\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\FakebearBoen\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\FakebearBoen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -50,9 +56,23 @@
               "target": "Package",
               "version": "[10.0.13, )"
             },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[10.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[10.0.13, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[10.3.1, )"
+            },
+            "System.Security.Cryptography.Pkcs": {
+              "target": "Package",
+              "version": "[10.0.13, )"
             }
           },
           "imports": [

@@ -1,4 +1,15 @@
+using Microsoft.EntityFrameworkCore;
+using PortfolioApi.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString =
+    builder.Configuration.GetConnectionString("PortfolioDatabase")
+    ?? throw new InvalidOperationException(
+        "Connection string 'PortfolioDatabase' ontbreekt.");
+
+builder.Services.AddDbContext<PortfolioDbContext>(dbOptions =>
+    dbOptions.UseSqlServer(connectionString));
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
