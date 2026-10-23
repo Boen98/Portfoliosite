@@ -1,9 +1,0 @@
-# ASP.NET Core build output and local IDE state
-**/bin/
-**/obj/
-.vs/
-*.user
-*.suo
-
-# Local SDK and NuGet caches used during setup
-.local/
