@@ -14,5 +14,4 @@ public class Project
 
     public string GitHubUrl { get; set; } = "";
 
-
 }

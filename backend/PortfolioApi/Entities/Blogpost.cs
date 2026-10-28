@@ -8,4 +8,4 @@ public class Blogpost
 
     public DateTime PublicatieDatum { get; set; }
     
-}dotnet ef migrations add InitialCreate -- --environment Development
+}
