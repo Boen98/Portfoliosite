@@ -53,4 +53,55 @@ public class ProjectService
             })
             .ToListAsync();
     }
+
+    public async Task<ProjectResponseDto?> HaalOpIdAsync(int id)
+{
+    return await _dbContext.Projecten
+        .Where(project => project.Id == id)
+        .Select(project => new ProjectResponseDto
+        {
+            Id = project.Id,
+            Titel = project.Titel,
+            Beschrijving = project.Beschrijving,
+            Datum = project.Datum,
+            Categorie = project.Categorie,
+            GitHubUrl = project.GitHubUrl
+        })
+        .FirstOrDefaultAsync();
+    }
+    public async Task<bool> WerkBijAsync(int id, ProjectUpdateDto invoer)
+{
+    var project = await _dbContext.Projecten.FindAsync(id);
+
+    if (project is null)
+    {
+        return false;
+    }
+
+    project.Titel = invoer.Titel;
+    project.Beschrijving = invoer.Beschrijving;
+    project.Datum = invoer.Datum;
+    project.Categorie = invoer.Categorie;
+    project.GitHubUrl = invoer.GitHubUrl;
+
+    await _dbContext.SaveChangesAsync();
+
+    return true;
+}
+
+public async Task<bool> VerwijderAsync(int id)
+{
+    var project = await _dbContext.Projecten.FindAsync(id);
+
+    if (project is null)
+    {
+        return false;
+    }
+
+    _dbContext.Projecten.Remove(project);
+    await _dbContext.SaveChangesAsync();
+
+    return true;
+}
+
 }
