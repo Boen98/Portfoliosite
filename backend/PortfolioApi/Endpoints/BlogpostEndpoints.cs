@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Http.HttpResults;
 using PortfolioApi.Dtos;
 using PortfolioApi.Services;
 
-
 namespace PortfolioApi.Endpoints;
 public static class BlogpostEndpoints
 {
