@@ -42,7 +42,9 @@ public static class BlogpostEndpoints
 
             return TypedResults.Created(
                 $"/api/blogposts/{blogpost.Id}", blogpost);
-        });
+        })
+            .RequireAuthorization("KanPortfolioBewerken")
+            .DisableCookieRedirect();
 
         blogpostRoutes.MapPut("/{id:int}",
             async Task<Results<NoContent, NotFound>>
@@ -58,7 +60,9 @@ public static class BlogpostEndpoints
             {
                 return TypedResults.NotFound();
             }
-        });
+        })
+            .RequireAuthorization("KanPortfolioBewerken")
+            .DisableCookieRedirect();
 
         blogpostRoutes.MapDelete("/{id:int}",
             async Task<Results<NoContent, NotFound>>
@@ -74,7 +78,9 @@ public static class BlogpostEndpoints
             {
                 return TypedResults.NotFound();
             }
-        });
+        })
+            .RequireAuthorization("KanPortfolioBewerken")
+            .DisableCookieRedirect();
     }
 
 }

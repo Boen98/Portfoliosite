@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using PortfolioApi.Data;
 using PortfolioApi.Services;
 using PortfolioApi.Endpoints;
@@ -13,6 +14,16 @@ var connectionString =
 
 builder.Services.AddDbContext<PortfolioDbContext>(dbOptions =>
     dbOptions.UseSqlServer(connectionString));
+
+    builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<PortfolioDbContext>();
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("KanPortfolioBewerken", policy =>
+        policy.RequireAuthenticatedUser()
+              .RequireRole("Editor", "Admin"));
+});
 
 // Add services to the container.
 builder.Services.AddOpenApi();
@@ -35,7 +46,14 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.MapBlogpostEndpoints();
 app.MapProjectEndpoints();
+app.MapAuthEndpoints();
+
+await IdentitySeeder.SeedRolesAsync(app.Services);
 
 app.Run();
+public partial class Program { }

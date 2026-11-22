@@ -44,7 +44,9 @@ public static class ProjectEndpoints
 
             return TypedResults.Created(
                 $"/api/projects/{project.Id}", project);
-        });
+        })
+.RequireAuthorization("KanPortfolioBewerken")
+.DisableCookieRedirect();
 
         // Een bestaand project wijzigen.
         projectRoutes.MapPut("/{id:int}",
@@ -61,7 +63,9 @@ public static class ProjectEndpoints
             {
                 return TypedResults.NotFound();
             }
-        });
+        })
+.RequireAuthorization("KanPortfolioBewerken")
+.DisableCookieRedirect();
 
         // Een bestaand project verwijderen.
         projectRoutes.MapDelete("/{id:int}",
@@ -78,6 +82,9 @@ public static class ProjectEndpoints
             {
                 return TypedResults.NotFound();
             }
-        });
+       })
+.RequireAuthorization("KanPortfolioBewerken")
+.DisableCookieRedirect();
+             
     }
 }

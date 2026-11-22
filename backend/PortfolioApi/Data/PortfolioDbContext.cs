@@ -1,9 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using PortfolioApi.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace PortfolioApi.Data;
-
-public class PortfolioDbContext : DbContext
+//inheritance van DbContext, zodat we de database kunnen benaderen
+public class PortfolioDbContext : IdentityDbContext<IdentityUser>
 {
     public PortfolioDbContext(DbContextOptions<PortfolioDbContext> options)
         : base(options)
