@@ -9,7 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace PortfolioApi.Tests;
 
-public sealed class ProjectReadTests : IClassFixture<PortfolioApiFactory>
+[Collection("Portfolio database")]
+public sealed class ProjectReadTests
 {
     private readonly PortfolioApiFactory _factory;
 
